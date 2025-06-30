@@ -1,3 +1,6 @@
+//Make sure the i18n translation thingy is available everywhere
+import './lang/i18n';
+
 import { registerRootComponent } from 'expo';
 
 import App from './App';
