@@ -1,3 +1,15 @@
 {
-    "HOME_TITLE": "HR Locations"
+    "HOME_TITLE": "HR Locations",
+    "NOTES": {
+        "TITLE": "Notes"
+    },
+    "PHOTOS": {
+        "TITLE": "Photos"
+    },
+    "MAP": {
+        "TITLE": "Map"
+    },
+    "SETTINGS": {
+        "TITLE": "Settings"
+    }
 }

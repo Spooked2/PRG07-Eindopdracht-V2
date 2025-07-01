@@ -15,7 +15,7 @@ export default function NotesScreen() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>{t('NOTES_TITLE')}</Text>
+            <Text style={styles.text}>{t('NOTES.TITLE')}</Text>
         </View>
     );
 

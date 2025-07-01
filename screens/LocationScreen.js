@@ -15,7 +15,7 @@ export default function LocationScreen() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>{t('LOCATION_TITLE')}</Text>
+            <Text style={styles.text}>{t('LOCATION.TITLE')}</Text>
         </View>
     );
 

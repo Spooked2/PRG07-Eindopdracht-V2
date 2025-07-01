@@ -15,7 +15,7 @@ export default function PhotoDetailScreen() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>{t('PHOTODETAIL_TITLE')}</Text>
+            <Text style={styles.text}>{t('PHOTOS.TITLE')}</Text>
         </View>
     );
 

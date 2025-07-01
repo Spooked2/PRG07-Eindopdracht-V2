@@ -15,7 +15,7 @@ export default function MapScreen() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>{t('MAP_TITLE')}</Text>
+            <Text style={styles.text}>{t('MAP.TITLE')}</Text>
         </View>
     );
 

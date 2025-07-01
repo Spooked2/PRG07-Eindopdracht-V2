@@ -15,7 +15,7 @@ export default function SettingsScreen() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>{t('SETTINGS_TITLE')}</Text>
+            <Text style={styles.text}>{t('SETTINGS.TITLE')}</Text>
         </View>
     );
 

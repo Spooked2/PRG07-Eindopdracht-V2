@@ -15,7 +15,7 @@ export default function PhotosScreen() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>{t('PHOTOS_TITLE')}</Text>
+            <Text style={styles.text}>{t('PHOTOS.TITLE')}</Text>
         </View>
     );
 
