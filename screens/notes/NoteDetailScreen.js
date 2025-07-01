@@ -1,9 +1,9 @@
-import getStyle from "../components/StyleSheet"
+import getStyle from "../../components/StyleSheet"
 import {View, Text} from "react-native";
-import useSettings from "../contexts/SettingsContext.js";
+import useSettings from "../../contexts/SettingsContext.js";
 import { useTranslation } from 'react-i18next';
 
-export default function NotesScreen() {
+export default function NoteDetailScreen() {
 
     const {t} = useTranslation();
 
@@ -15,7 +15,7 @@ export default function NotesScreen() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>{t('NOTES_TITLE')}</Text>
+            <Text style={styles.text}>{t('NOTEDETAIL_TITLE')}</Text>
         </View>
     );
 
