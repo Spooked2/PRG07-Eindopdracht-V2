@@ -3,15 +3,16 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function useSettings() {
 
-    const [settings, setSettings] = useState({theme: 'light', language: 'en'});
+    const [settings, setSettings] = useState({theme: 'standard', language: 'en'});
 
     const getSettings = async () => {
 
         const storedSettingsJson = await AsyncStorage.getItem('settings');
 
         if (!storedSettingsJson) {
+            console.log('reverting to default');
             return {
-                theme: 'light',
+                theme: 'standard',
                 language: 'en'
             };
         }
@@ -31,17 +32,17 @@ export default function useSettings() {
 
     }, []);
 
-    useEffect(() => {
-
-        const saveSettings = async () => {
-
-            await AsyncStorage.setItem('settings', JSON.stringify(settings));
-
-        }
-
-        saveSettings();
-
-    }, [settings])
+    // useEffect(() => {
+    //
+    //     const saveSettings = async () => {
+    //
+    //         await AsyncStorage.setItem('settings', JSON.stringify(settings));
+    //
+    //     }
+    //
+    //     saveSettings();
+    //
+    // }, [settings]);
 
     return {settings, setSettings};
 }

@@ -28,6 +28,3 @@ i18next.use(initReactI18next)
         defaultNS: 'translation',
         compatibilityJSON: 'v3'
     });
-
-export default i18next
-

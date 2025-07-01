@@ -10,6 +10,8 @@
         "TITLE": "Map"
     },
     "SETTINGS": {
-        "TITLE": "Settings"
+        "TITLE": "Settings",
+        "THEME": "Theme",
+        "LANGUAGE": "Language"
     }
 }

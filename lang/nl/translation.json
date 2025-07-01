@@ -1,3 +1,17 @@
 {
-    "HOME_TITLE": "HR Locaties"
+    "HOME_TITLE": "HR Locaties",
+    "NOTES": {
+        "TITLE": "Notities"
+    },
+    "PHOTOS": {
+        "TITLE": "Foto's"
+    },
+    "MAP": {
+        "TITLE": "Kaart"
+    },
+    "SETTINGS": {
+        "TITLE": "Instellingen",
+        "THEME": "Thema",
+        "LANGUAGE": "Taal"
+    }
 }

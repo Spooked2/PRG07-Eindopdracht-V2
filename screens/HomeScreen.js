@@ -4,6 +4,7 @@ import useSettings from "../contexts/SettingsContext.js";
 import { useTranslation } from 'react-i18next';
 import {useNavigation} from "@react-navigation/native";
 import {useEffect} from "react";
+import i18next from 'i18next';
 
 export default function HomeScreen() {
 
@@ -13,13 +14,15 @@ export default function HomeScreen() {
 
     const {settings} = useSettings();
 
-    const {theme} = settings;
-
-    const styles = getStyle(theme);
+    const styles = getStyle(settings.theme);
 
     useEffect(() => {
         navigator.setOptions({title: t('HOME_TITLE')});
-    }, []);
+    }, [settings]);
+
+    useEffect(() => {
+        i18next.changeLanguage(settings.language);
+    }, [settings]);
 
     return (
         <View style={styles.container}>

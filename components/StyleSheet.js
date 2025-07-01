@@ -3,7 +3,7 @@ import * as themeColors from '../assets/themeColors.json';
 
 export default function getStyle(theme) {
 
-    const colors = themeColors[theme] ?? themeColors.light;
+    const colors = themeColors[theme] ?? themeColors.standard;
 
     return StyleSheet.create({
         container: {
