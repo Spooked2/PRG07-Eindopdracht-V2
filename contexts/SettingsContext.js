@@ -3,7 +3,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function useSettings() {
 
-    const [settings, setSettings] = useState({theme: 'light', language: 'english'});
+    const [settings, setSettings] = useState({theme: 'light', language: 'en'});
 
     const getSettings = async () => {
 
@@ -12,7 +12,7 @@ export default function useSettings() {
         if (!storedSettingsJson) {
             return {
                 theme: 'light',
-                language: 'english'
+                language: 'en'
             };
         }
 
