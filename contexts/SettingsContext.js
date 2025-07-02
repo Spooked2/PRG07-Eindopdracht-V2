@@ -1,7 +1,9 @@
-import {useEffect, useState} from 'react';
+import {createContext, useContext, useEffect, useState} from 'react';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function useSettings() {
+const SettingsContext = createContext();
+
+export default function SettingsContextProvider({ children }) {
 
     const [settings, setSettings] = useState({theme: 'standard', language: 'en'});
 
@@ -32,17 +34,15 @@ export default function useSettings() {
 
     }, []);
 
-    // useEffect(() => {
-    //
-    //     const saveSettings = async () => {
-    //
-    //         await AsyncStorage.setItem('settings', JSON.stringify(settings));
-    //
-    //     }
-    //
-    //     saveSettings();
-    //
-    // }, [settings]);
+    return (
 
-    return {settings, setSettings};
+        <SettingsContext.Provider value={{settings, setSettings}}>
+            {children}
+        </SettingsContext.Provider>
+
+    );
 }
+
+export const useSettings = () => {
+  return useContext(SettingsContext);
+};

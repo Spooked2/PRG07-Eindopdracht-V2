@@ -1,6 +1,6 @@
 import getStyle from "../../components/StyleSheet"
 import {View, Text} from "react-native";
-import useSettings from "../../contexts/SettingsContext.js";
+import {useSettings} from "../../contexts/SettingsContext.js";
 import { useTranslation } from 'react-i18next';
 import {useNavigation} from "@react-navigation/native";
 import {useEffect} from "react";
