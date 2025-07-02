@@ -18,6 +18,9 @@ const Tabs = createBottomTabNavigator({
         Notes: NotesScreen,
         Photos: PhotosScreen,
         Settings: SettingsScreen,
+    },
+    screenOptions: {
+        lazy: false
     }
 });
 
