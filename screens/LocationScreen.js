@@ -4,6 +4,7 @@ import {useSettings} from "../contexts/SettingsContext.js";
 import { useTranslation } from 'react-i18next';
 import {useEffect} from "react";
 import {useNavigation} from "@react-navigation/native";
+import i18next from "i18next";
 
 export default function LocationScreen() {
 
@@ -18,8 +19,9 @@ export default function LocationScreen() {
     const styles = getStyle(theme);
 
     useEffect(() => {
+        i18next.changeLanguage(settings.language);
         navigator.setOptions({title: t('LOCATION.TITLE')});
-    }, []);
+    }, [settings]);
 
     return (
         <View style={styles.container}>

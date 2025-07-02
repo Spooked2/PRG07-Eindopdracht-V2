@@ -17,11 +17,8 @@ export default function HomeScreen() {
     const styles = getStyle(settings.theme);
 
     useEffect(() => {
-        navigator.setOptions({title: t('HOME_TITLE')});
-    }, [settings]);
-
-    useEffect(() => {
         i18next.changeLanguage(settings.language);
+        navigator.setOptions({title: t('HOME_TITLE')});
     }, [settings]);
 
     return (

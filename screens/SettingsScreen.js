@@ -41,8 +41,6 @@ export default function SettingsScreen() {
 
     useEffect(() => {
 
-        navigator.setOptions({title: t('SETTINGS.TITLE')});
-
         const getSettings = async () => {
 
             const storedSettingsJson = await AsyncStorage.getItem('settings');
@@ -93,6 +91,8 @@ export default function SettingsScreen() {
 
         if (settingsLoaded) {
             saveSettings();
+            i18next.changeLanguage(settings.language);
+            navigator.setOptions({title: t('SETTINGS.TITLE')});
         }
 
     }, [settings]);
@@ -104,14 +104,6 @@ export default function SettingsScreen() {
     const onOpenLanguageDropdown = useCallback(() => {
         setOpenTheme(false);
     }, []);
-
-    useEffect(() => {
-
-        if (settingsLoaded) {
-            i18next.changeLanguage(languageValue);
-        }
-
-    }, [languageValue]);
 
     return (
         <View style={styles.container}>
