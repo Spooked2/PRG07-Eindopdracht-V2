@@ -26,6 +26,11 @@ export default function LocationsContextProvider({ children }) {
             await AsyncStorage.setItem('locationsStoreTime', `${Date.now()}`);
 
             return jsonData;
+
+        } else if (!storedLocationsJson && !isConnected) {
+
+            return false;
+
         }
 
         return JSON.parse(storedLocationsJson);
