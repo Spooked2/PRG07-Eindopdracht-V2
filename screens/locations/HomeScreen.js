@@ -1,11 +1,11 @@
-import getStyle from "../components/StyleSheet"
+import getStyle from "../../components/StyleSheet"
 import {View, Text, FlatList} from "react-native";
-import {useSettings} from "../contexts/SettingsContext.js";
+import {useSettings} from "../../contexts/SettingsContext.js";
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from "@react-navigation/native";
 import {useEffect, useState} from "react";
 import i18next from 'i18next';
-import LocationItemSmall from "../components/LocationItemSmall";
+import LocationItemSmall from "../../components/LocationItemSmall";
 
 export default function HomeScreen() {
 

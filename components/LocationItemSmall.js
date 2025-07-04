@@ -10,7 +10,7 @@ export default function LocationItemSmall({location, navigator}) {
 
     const goToDetail = () => {
 
-        navigator.navigate('LocationDetail', {params: {location}})
+        navigator.navigate('LocationDetail', {location: location})
 
     }
 
