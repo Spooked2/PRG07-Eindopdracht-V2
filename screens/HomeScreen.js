@@ -19,7 +19,7 @@ export default function HomeScreen() {
 
     useEffect(() => {
         i18next.changeLanguage(settings.language);
-        navigator.setOptions({title: t('HOME_TITLE')});
+        navigator.getParent().setOptions({title: t('HOME_TITLE')});
     }, [settings]);
 
     const [locations, setLocations] = useState(false);

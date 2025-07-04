@@ -20,7 +20,7 @@ export default function NotesScreen() {
 
     useEffect(() => {
         i18next.changeLanguage(settings.language);
-        navigator.setOptions({title: t('NOTES.TITLE')});
+        navigator.getParent().setOptions({title: t('NOTES.TITLE')});
     }, [settings]);
 
     return (

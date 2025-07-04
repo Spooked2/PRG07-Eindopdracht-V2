@@ -11,12 +11,74 @@ import NoteDetailScreen from "./screens/notes/NoteDetailScreen";
 import PhotoDetailScreen from "./screens/photos/PhotoDetailScreen";
 import SettingsContextProvider from "./contexts/SettingsContext";
 
-const Tabs = createBottomTabNavigator({
+// const Tabs = createBottomTabNavigator({
+//     screens: {
+//         Home: HomeScreen,
+//         Map: MapScreen,
+//         Notes: NotesScreen,
+//         Photos: PhotosScreen,
+//         Settings: SettingsScreen,
+//     },
+//     screenOptions: {
+//         lazy: false
+//     }
+// });
+//
+// const RootStack = createStackNavigator({
+//     screens: {
+//         Tabs: {
+//             screen: Tabs,
+//             options: {
+//                 headerShown: false
+//             }
+//         },
+//         Home: HomeScreen,
+//         Map: MapScreen,
+//         Notes: NotesScreen,
+//         Photos: PhotosScreen,
+//         Settings: SettingsScreen,
+//         LocationDetail: LocationScreen,
+//         NoteDetail: NoteDetailScreen,
+//         PhotoDetail: PhotoDetailScreen
+//     }
+// });
+
+const HomeStack = createStackNavigator({
     screens: {
         Home: HomeScreen,
-        Map: MapScreen,
+        LocationDetail: LocationScreen,
+    },
+    screenOptions: {
+        headerShown: false
+    }
+});
+
+const NoteStack = createStackNavigator({
+    screens: {
         Notes: NotesScreen,
+        NoteDetail: NoteDetailScreen
+    },
+    screenOptions: {
+        headerShown: false
+    }
+});
+
+const PhotoStack = createStackNavigator({
+    screens: {
         Photos: PhotosScreen,
+        PhotoDetail: PhotoDetailScreen
+    },
+    screenOptions: {
+        headerShown: false
+    }
+});
+
+const RootTabs = createBottomTabNavigator({
+    screens: {
+        HomeScreens: HomeStack,
+        Map: MapScreen,
+        NoteScreens: NoteStack,
+        PhotoScreens: PhotoStack,
         Settings: SettingsScreen,
     },
     screenOptions: {
@@ -24,26 +86,7 @@ const Tabs = createBottomTabNavigator({
     }
 });
 
-const RootStack = createStackNavigator({
-    screens: {
-        Tabs: {
-            screen: Tabs,
-            options: {
-                headerShown: false
-            }
-        },
-        Home: HomeScreen,
-        Map: MapScreen,
-        Notes: NotesScreen,
-        Photos: PhotosScreen,
-        Settings: SettingsScreen,
-        LocationDetail: LocationScreen,
-        NoteDetail: NoteDetailScreen,
-        PhotoDetail: PhotoDetailScreen
-    }
-});
-
-const Navigation = createStaticNavigation(RootStack);
+const Navigation = createStaticNavigation(RootTabs);
 
 export default function App() {
 

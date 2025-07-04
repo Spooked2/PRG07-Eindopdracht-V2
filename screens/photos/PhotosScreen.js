@@ -20,7 +20,7 @@ export default function PhotosScreen() {
 
     useEffect(() => {
         i18next.changeLanguage(settings.language);
-        navigator.setOptions({title: t('PHOTOS.TITLE')});
+        navigator.getParent().setOptions({title: t('PHOTOS.TITLE')});
     }, [settings]);
 
     return (
