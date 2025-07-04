@@ -2,14 +2,20 @@ import {View, Text, FlatList} from "react-native";
 import {useSettings} from "../contexts/SettingsContext";
 import getStyle from "./StyleSheet";
 
-export default function LocationItemSmall({location}) {
+export default function LocationItemSmall({location, navigator}) {
 
     const {settings} = useSettings();
 
     const styles = getStyle(settings.theme);
 
+    const goToDetail = () => {
+
+        navigator.navigate('LocationDetail', {params: {location}})
+
+    }
+
     return (
-        <View style={styles.container}>
+        <View style={styles.container} onTouchEnd={goToDetail}>
 
             <Text style={styles.text}>{location.name}</Text>
 
@@ -17,7 +23,7 @@ export default function LocationItemSmall({location}) {
 
                 <FlatList
                     data={location.institutions}
-                    renderItem={({item}) => <Text>{item}</Text>}
+                    renderItem={({item}) => <Text style={styles.text}>{item}</Text>}
                 />
 
             </View>

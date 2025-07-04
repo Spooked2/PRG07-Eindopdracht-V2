@@ -51,7 +51,7 @@ export default function HomeScreen() {
                     locations ? (
                         <FlatList
                             data={locations}
-                            renderItem={({item}) => <LocationItemSmall key={item.id} location={item}/>}/>
+                            renderItem={({item}) => <LocationItemSmall navigator={navigator} key={item.id} location={item}/>}/>
                         )
                         :
                         (
