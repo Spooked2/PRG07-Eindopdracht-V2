@@ -16,7 +16,7 @@ export default function LocationsContextProvider({ children }) {
 
         //Refresh the location data every 2 weeks
         //Only do this if there is an internet connection
-        if (!storedLocationsJson || (Date.now() - parseInt(storedLocationsStoreTime ?? '0')) >= 1209600000 && isConnected) {
+        if (!storedLocationsJson || (Date.now() - parseInt(storedLocationsStoreTime ?? `${Date.now()}`)) >= 1209600000 && isConnected) {
 
             const data = await fetch('https://project.hosted.hr.nl/2023_2024/ressys_t14/PRG07-Backend/');
 
@@ -26,6 +26,11 @@ export default function LocationsContextProvider({ children }) {
             await AsyncStorage.setItem('locationsStoreTime', `${Date.now()}`);
 
             return jsonData;
+
+        } else if (!storedLocationsJson && !isConnected) {
+
+            return false;
+
         }
 
         return JSON.parse(storedLocationsJson);
