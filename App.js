@@ -11,38 +11,6 @@ import NoteDetailScreen from "./screens/notes/NoteDetailScreen";
 import PhotoDetailScreen from "./screens/photos/PhotoDetailScreen";
 import SettingsContextProvider from "./contexts/SettingsContext";
 
-// const Tabs = createBottomTabNavigator({
-//     screens: {
-//         Home: HomeScreen,
-//         Map: MapScreen,
-//         Notes: NotesScreen,
-//         Photos: PhotosScreen,
-//         Settings: SettingsScreen,
-//     },
-//     screenOptions: {
-//         lazy: false
-//     }
-// });
-//
-// const RootStack = createStackNavigator({
-//     screens: {
-//         Tabs: {
-//             screen: Tabs,
-//             options: {
-//                 headerShown: false
-//             }
-//         },
-//         Home: HomeScreen,
-//         Map: MapScreen,
-//         Notes: NotesScreen,
-//         Photos: PhotosScreen,
-//         Settings: SettingsScreen,
-//         LocationDetail: LocationScreen,
-//         NoteDetail: NoteDetailScreen,
-//         PhotoDetail: PhotoDetailScreen
-//     }
-// });
-
 const HomeStack = createStackNavigator({
     screens: {
         Home: HomeScreen,
