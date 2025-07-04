@@ -12,7 +12,6 @@ export default function SettingsContextProvider({ children }) {
         const storedSettingsJson = await AsyncStorage.getItem('settings');
 
         if (!storedSettingsJson) {
-            console.log('reverting to default');
             return {
                 theme: 'standard',
                 language: 'en'
