@@ -3,9 +3,10 @@ import {View, Text, FlatList} from "react-native";
 import {useSettings} from "../../contexts/SettingsContext.js";
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from "@react-navigation/native";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import i18next from 'i18next';
 import LocationItemSmall from "../../components/LocationItemSmall";
+import {useLocations} from "../../contexts/LocationsContext";
 
 export default function HomeScreen() {
 
@@ -22,23 +23,7 @@ export default function HomeScreen() {
         navigator.getParent().setOptions({title: t('HOME_TITLE')});
     }, [settings]);
 
-    const [locations, setLocations] = useState(false);
-
-    useEffect(() => {
-
-        const fetchLocations = async () => {
-
-            const data = await fetch('https://project.hosted.hr.nl/2023_2024/ressys_t14/PRG07-Backend/');
-
-            const jsonData = await data.json();
-
-            setLocations(jsonData);
-
-        }
-
-        fetchLocations();
-
-    }, []);
+    const {locations} = useLocations();
 
     return (
         <View style={styles.container}>
