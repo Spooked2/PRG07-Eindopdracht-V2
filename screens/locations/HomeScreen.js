@@ -36,6 +36,8 @@ export default function HomeScreen() {
                     locations ? (
                         <FlatList
                             data={locations}
+                            numColumns={2}
+                            columnWrapperStyle={styles.twoColumnList}
                             renderItem={({item}) => <LocationItemSmall navigator={navigator} key={item.id} location={item}/>}/>
                         )
                         :

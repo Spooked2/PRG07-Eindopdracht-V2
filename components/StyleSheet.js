@@ -12,6 +12,21 @@ export default function getStyle(theme) {
         },
         text: {
             color: colors.text
+        },
+        locationItemSmall: {
+            flex: 1,
+            backgroundColor: colors.containerBackground,
+            padding: 20,
+            alignItems: "center",
+            height: 150,
+            width: 150,
+            overflow: "hidden"
+        },
+        twoColumnList: {
+            flex: 1,
+            flexDirection: "row",
+            flexWrap: "wrap",
+            gap: 25
         }
     });
 
