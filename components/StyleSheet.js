@@ -27,6 +27,10 @@ export default function getStyle(theme) {
             flexDirection: "row",
             flexWrap: "wrap",
             gap: 25
+        },
+        map: {
+            width: '100%',
+            height: '100%'
         }
     });
 
