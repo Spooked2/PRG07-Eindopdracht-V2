@@ -31,6 +31,18 @@ export default function getStyle(theme) {
         map: {
             width: '100%',
             height: '100%'
+        },
+        titledList: {
+            flex: 1,
+            gap: 5,
+            padding: 5,
+            alignItems: 'center',
+        },
+        locationContainer: {
+            flex: 1,
+            alignItems: "center",
+            padding: 25,
+            gap: 5
         }
     });
 

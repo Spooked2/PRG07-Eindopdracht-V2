@@ -38,7 +38,7 @@ export default function LocationScreen({route}) {
     }, [settings]);
 
     return (
-        <View style={styles.container}>
+        <View style={styles.locationContainer}>
             <Text style={styles.text}>{location.name}</Text>
 
             <TitledList items={location.facilities} title={t('LOCATION.FACILITIES')} translateItems={true}/>

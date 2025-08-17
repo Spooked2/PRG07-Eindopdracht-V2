@@ -12,7 +12,7 @@ export default function TitledList({title, items, translateItems = false}) {
     const styles = getStyle(settings.theme);
 
     return (
-        <View style={styles.container}>
+        <View style={styles.titledList}>
 
             <Text style={styles.text}>{title}</Text>
 
