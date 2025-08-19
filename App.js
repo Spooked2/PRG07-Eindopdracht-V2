@@ -11,6 +11,7 @@ import NoteDetailScreen from "./screens/notes/NoteDetailScreen";
 import PhotoDetailScreen from "./screens/photos/PhotoDetailScreen";
 import SettingsContextProvider from "./contexts/SettingsContext";
 import LocationsContextProvider from "./contexts/LocationsContext";
+import NoteCreateScreen from "./screens/notes/NoteCreateScreen";
 
 const HomeStack = createStackNavigator({
     screens: {
@@ -25,7 +26,8 @@ const HomeStack = createStackNavigator({
 const NoteStack = createStackNavigator({
     screens: {
         Notes: NotesScreen,
-        NoteDetail: NoteDetailScreen
+        NoteDetail: NoteDetailScreen,
+        NoteCreate: NoteCreateScreen
     },
     screenOptions: {
         headerShown: false

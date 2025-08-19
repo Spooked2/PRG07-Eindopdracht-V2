@@ -1,5 +1,5 @@
 import getStyle from "../../components/StyleSheet"
-import {View, Text} from "react-native";
+import {View, Text, Pressable} from "react-native";
 import {useSettings} from "../../contexts/SettingsContext.js";
 import {useTranslation} from 'react-i18next';
 import {useCallback, useEffect, useState} from "react";
@@ -27,6 +27,10 @@ export default function NotesScreen({route}) {
     const [locationItems, setLocationItems] = useState([]);
 
     const {locations} = useLocations();
+
+    const goToCreateScreen = () => {
+        navigator.navigate('NoteScreens', {screen: 'NoteCreate', params: {locationId: locationId}});
+    }
 
     useEffect(() => {
         i18next.changeLanguage(settings.language);
@@ -76,6 +80,10 @@ export default function NotesScreen({route}) {
                 open={openLocation}
                 setOpen={setOpenLocation}
             />
+
+            <Pressable onPress={goToCreateScreen}>
+                <Text style={styles.text}>+</Text>
+            </Pressable>
 
         </View>
     );
