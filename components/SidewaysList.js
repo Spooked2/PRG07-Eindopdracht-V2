@@ -12,7 +12,7 @@ export default function SidewaysList({title, items, locationId, indexScreen, nav
 
     const goToIndex = () => {
 
-        navigator.navigate(indexScreen, {locationId: locationId});
+        navigator.navigate((indexScreen + 'Screens'), {screen: (indexScreen + 's'), params: {locationId: locationId}});
 
     }
 

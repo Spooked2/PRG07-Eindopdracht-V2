@@ -1,5 +1,5 @@
 import getStyle from "../../components/StyleSheet"
-import {View, Text} from "react-native";
+import {View, Text, KeyboardAvoidingView, TextInput} from "react-native";
 import {useSettings} from "../../contexts/SettingsContext.js";
 import { useTranslation } from 'react-i18next';
 import {useNavigation} from "@react-navigation/native";
@@ -27,13 +27,17 @@ export default function NoteCreateScreen() {
 
     useEffect(() => {
         i18next.changeLanguage(settings.language);
-        navigator.setOptions({title: t('NOTES.TITLE')});
+        navigator.setOptions({title: t('NOTES.CREATE.TITLE')});
     }, [settings]);
 
+    const updateInput = (newInput) => {
+        console.log(newInput);
+    }
+
     return (
-        <View style={styles.container}>
-            <Text style={styles.text}>{t('NOTES.TITLE')}</Text>
-        </View>
+        <KeyboardAvoidingView style={styles.container}>
+            <TextInput style={styles.text} multiline={true} onChangeText={updateInput}/>
+        </KeyboardAvoidingView>
     );
 
 }

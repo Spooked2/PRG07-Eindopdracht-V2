@@ -6,11 +6,13 @@ import {useEffect} from "react";
 import {useNavigation} from "@react-navigation/native";
 import i18next from "i18next";
 
-export default function NotesScreen() {
+export default function NotesScreen({ route }) {
 
     const {t} = useTranslation();
 
     const navigator = useNavigation();
+
+    const {locationId} = route.params;
 
     const {settings} = useSettings();
 
