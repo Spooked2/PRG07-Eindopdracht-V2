@@ -30,7 +30,7 @@
       [
         "expo-location",
         {
-          "locationAlwaysAndWhenInUsePermission": "Allow HR locations app to use your location."
+          "isAndroidBackgroundLocationEnabled": true
         }
       ]
     ]
