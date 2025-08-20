@@ -5,14 +5,14 @@ const NotesContext = createContext();
 
 export default function NotesContextProvider({ children }) {
 
-    const [notes, setNotes] = useState(false);
+    const [notes, setNotes] = useState([]);
 
     const getNotes = async () => {
 
         const storedNotesJson = await AsyncStorage.getItem('notes');
 
         if (!storedNotesJson) {
-            return false;
+            return [];
         }
 
         return JSON.parse(storedNotesJson);

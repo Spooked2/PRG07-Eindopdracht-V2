@@ -1,13 +1,14 @@
 import getStyle from "../../components/StyleSheet"
 import {View, Text, Pressable} from "react-native";
 import {useSettings} from "../../contexts/SettingsContext.js";
-import { useTranslation } from 'react-i18next';
-import {useEffect, useState} from "react";
-import {useNavigation} from "@react-navigation/native";
+import {useTranslation} from 'react-i18next';
+import {useCallback, useEffect, useState} from "react";
+import {useFocusEffect, useNavigation} from "@react-navigation/native";
 import i18next from "i18next";
 import TitledList from "../../components/TitledList";
 import SidewaysList from "../../components/SidewaysList";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import {useNotes} from "../../contexts/NotesContext";
 
 export default function LocationScreen({route}) {
 
@@ -15,20 +16,36 @@ export default function LocationScreen({route}) {
 
     const navigator = useNavigation();
 
-    const {location} = route.params;
-
-    if (!location) {
+    if (!route.params?.location) {
         navigator.navigate('HomeScreens', {screen: 'Home'});
     }
 
-    const {notes, setNotes} = useState([]);
-    const {photos, setPhotos} = useState([]);
+    const {location} = route.params;
+
+    const {notes} = useNotes();
+
+    const [locationNotes, setLocationNotes] = useState([]);
+    const [photos, setPhotos] = useState([]);
 
     const {settings} = useSettings();
 
     const {theme} = settings;
 
     const styles = getStyle(theme);
+
+    const sortAsyncStorageData = (a, b) => {
+
+        if (a.favorite && !b.favorite) {
+            return -1;
+        }
+
+        if (!a.favorite && b.favorite) {
+            return 1;
+        }
+
+        return 0;
+
+    }
 
     const goToMap = () => {
 
@@ -41,47 +58,38 @@ export default function LocationScreen({route}) {
         navigator.setOptions({title: t('LOCATION.TITLE')});
     }, [settings]);
 
-    useEffect(() => {
+    useFocusEffect(
+        useCallback(() => {
 
-        const fetchAsyncStorageData = async () => {
+            const fetchAsyncStorageData = async () => {
 
-            const fetchedNotesJSON = await AsyncStorage.getItem('notes');
-            const fetchedPhotosJSON = await AsyncStorage.getItem('photos');
+                const fetchedPhotosJSON = await AsyncStorage.getItem('photos');
 
-            const fetchedNotes = JSON.parse(fetchedNotesJSON ?? '[]');
-            const fetchedPhotos = JSON.parse(fetchedPhotosJSON ?? '[]');
+                const fetchedPhotos = JSON.parse(fetchedPhotosJSON ?? '[]');
 
-            const filteredNotes = fetchedNotes.filter((note) => note.locationId === location.id);
-            const filteredPhotos = fetchedPhotos.filter((photo) => photo.locationId === location.id);
+                const filteredNotes = notes.filter((note) => note.locationId === location.id);
+                const filteredPhotos = fetchedPhotos.filter((photo) => photo.locationId === location.id);
 
-            const sortAsyncStorageData = (a, b) => {
+                //React native doesn't support the Array.toSorted method, but doesn't give any sort of error
+                //It just stops running code past this and doesn't say anything
+                //Why
+                const sortedNotes = [...filteredNotes].sort(sortAsyncStorageData);
+                const sortedPhotos = [...filteredPhotos].sort(sortAsyncStorageData);
 
-                if (a.favorite && !b.favorite) {
-                    return -1;
-                }
-
-                if (!a.favorite && b.favorite) {
-                    return 1;
-                }
-
-                return 0;
+                setLocationNotes(sortedNotes);
+                setPhotos(sortedPhotos);
 
             }
 
-            const sortedNotes = filteredNotes.toSorted(sortAsyncStorageData);
-            const sortedPhotos = filteredPhotos.toSorted(sortAsyncStorageData);
+            fetchAsyncStorageData();
 
-            setNotes(sortedNotes);
-            setPhotos(sortedPhotos);
+        }, [notes])
+    );
 
-        }
-
-        fetchAsyncStorageData();
-
-    }, []);
 
     return (
         <View style={styles.locationContainer}>
+
             <Text style={styles.text}>{location.name}</Text>
 
             <TitledList items={location.facilities} title={t('LOCATION.FACILITIES')} translateItems={true}/>
@@ -89,7 +97,7 @@ export default function LocationScreen({route}) {
             <TitledList items={location.institutions} title={t('LOCATION.INSTITUTIONS')}/>
 
             <SidewaysList
-                items={notes}
+                items={locationNotes}
                 indexScreen={'Note'}
                 locationId={location.id}
                 navigator={navigator}

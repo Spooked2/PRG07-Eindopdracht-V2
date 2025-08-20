@@ -1,5 +1,5 @@
 import getStyle from "../../components/StyleSheet"
-import {View, Text, Pressable} from "react-native";
+import {View, Text, Pressable, FlatList} from "react-native";
 import {useSettings} from "../../contexts/SettingsContext.js";
 import {useTranslation} from 'react-i18next';
 import {useCallback, useEffect, useState} from "react";
@@ -7,6 +7,8 @@ import {useFocusEffect, useNavigation} from "@react-navigation/native";
 import i18next from "i18next";
 import DropDownPicker from "react-native-dropdown-picker";
 import {useLocations} from "../../contexts/LocationsContext";
+import {useNotes} from "../../contexts/NotesContext";
+import SidewaysListItem from "../../components/SidewaysListItem";
 
 export default function NotesScreen({route}) {
 
@@ -15,12 +17,14 @@ export default function NotesScreen({route}) {
     const navigator = useNavigation();
 
     const {settings} = useSettings();
+    const {notes} = useNotes();
 
     const {theme} = settings;
 
     const styles = getStyle(theme);
 
     const [locationId, setLocationId] = useState(route.params?.locationId ?? 0);
+    const [filteredNotes, setFilteredNotes] = useState([]);
 
     const [openLocation, setOpenLocation] = useState(false);
     const [locationValue, setLocationValue] = useState(locationId);
@@ -55,6 +59,12 @@ export default function NotesScreen({route}) {
 
     }, [locations]);
 
+    useEffect(() => {
+
+        setFilteredNotes(notes.filter((note) => note.locationId === locationValue));
+
+    }, [locationValue]);
+
     useFocusEffect(
         useCallback(() => {
 
@@ -79,6 +89,11 @@ export default function NotesScreen({route}) {
                 setItems={setLocationItems}
                 open={openLocation}
                 setOpen={setOpenLocation}
+            />
+
+            <FlatList
+                data={filteredNotes}
+                renderItem={({item}) => <SidewaysListItem key={item.id} item={item} type={'NOTES'}/>}
             />
 
             <Pressable onPress={goToCreateScreen}>

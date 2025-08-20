@@ -12,6 +12,7 @@ import PhotoDetailScreen from "./screens/photos/PhotoDetailScreen";
 import SettingsContextProvider from "./contexts/SettingsContext";
 import LocationsContextProvider from "./contexts/LocationsContext";
 import NoteCreateScreen from "./screens/notes/NoteCreateScreen";
+import NotesContextProvider from "./contexts/NotesContext";
 
 const HomeStack = createStackNavigator({
     screens: {
@@ -62,11 +63,13 @@ const Navigation = createStaticNavigation(RootTabs);
 export default function App() {
 
     return (
-        <LocationsContextProvider>
-            <SettingsContextProvider>
-                <Navigation/>
-            </SettingsContextProvider>
-        </LocationsContextProvider>
+        <NotesContextProvider>
+            <LocationsContextProvider>
+                <SettingsContextProvider>
+                    <Navigation/>
+                </SettingsContextProvider>
+            </LocationsContextProvider>
+        </NotesContextProvider>
     );
 
 }
