@@ -68,8 +68,6 @@ export default function MapScreen({ route }) {
     useFocusEffect(
         useCallback(() => {
 
-            console.log(route)
-
             if (route.params?.location) {
                 setFocusLocation(route.params.location.coordinates);
             }

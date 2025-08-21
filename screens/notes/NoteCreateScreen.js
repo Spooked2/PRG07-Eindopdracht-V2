@@ -1,15 +1,16 @@
 import getStyle from "../../components/StyleSheet"
 import {View, Text, KeyboardAvoidingView, TextInput, Pressable, Switch} from "react-native";
 import {useSettings} from "../../contexts/SettingsContext.js";
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 import {useNavigation} from "@react-navigation/native";
 import {useEffect, useState} from "react";
 import i18next from "i18next";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {useLocations} from "../../contexts/LocationsContext";
 import {useNotes} from "../../contexts/NotesContext";
+import * as LocalAuthentication from 'expo-local-authentication';
 
-export default function NoteCreateScreen({ route }) {
+export default function NoteCreateScreen({route}) {
 
     const {t} = useTranslation();
 
@@ -49,6 +50,15 @@ export default function NoteCreateScreen({ route }) {
     };
 
     const submitForm = async () => {
+
+        const {success} = await LocalAuthentication.authenticateAsync({biometricsSecurityLevel: 'weak'});
+
+        if (!success) {
+            console.log('User could not be authenticated');
+            return;
+        }
+
+        console.log('User has been authenticated');
 
         setNotes([...notes, formData]);
 
