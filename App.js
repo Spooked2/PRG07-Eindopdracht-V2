@@ -54,7 +54,8 @@ const RootTabs = createBottomTabNavigator({
         Settings: SettingsScreen,
     },
     screenOptions: {
-        lazy: false
+        lazy: false,
+        headerTitleAlign: 'center'
     }
 });
 

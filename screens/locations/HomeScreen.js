@@ -28,9 +28,6 @@ export default function HomeScreen() {
     return (
         <View style={styles.container}>
 
-            <Text style={styles.text}>{t('HOME_TITLE')}</Text>
-
-            <View style={styles.container}>
 
                 {
                     locations ? (
@@ -46,7 +43,6 @@ export default function HomeScreen() {
                         )
                 }
 
-            </View>
 
         </View>
     );

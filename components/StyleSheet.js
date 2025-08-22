@@ -8,19 +8,37 @@ export default function getStyle(theme) {
     return StyleSheet.create({
         container: {
             flex: 1,
-            backgroundColor: colors.background
+            backgroundColor: colors.background,
+            padding: 10
         },
         text: {
             color: colors.text
+        },
+        containerText: {
+            color: colors.containerText
+        },
+        header1: {
+            fontSize: 20,
+        },
+        header2: {
+
+        },
+        header3: {
+
+        },
+        centeredText: {
+            textAlign: 'center'
         },
         locationItemSmall: {
             flex: 1,
             backgroundColor: colors.containerBackground,
             padding: 20,
+            marginBottom: 25,
             alignItems: "center",
             height: 150,
-            width: 150,
-            overflow: "hidden"
+            maxWidth: '47%',
+            overflow: "hidden",
+            borderRadius: 6,
         },
         twoColumnList: {
             flex: 1,

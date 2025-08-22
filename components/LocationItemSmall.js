@@ -17,13 +17,13 @@ export default function LocationItemSmall({location, navigator}) {
     return (
         <View style={styles.locationItemSmall} onTouchEnd={goToDetail}>
 
-            <Text style={styles.text}>{location.name}</Text>
+            <Text style={[styles.containerText, styles.header1, styles.centeredText]}>{location.name}</Text>
 
             <View>
 
                 <FlatList
                     data={location.institutions}
-                    renderItem={({item}) => <Text style={styles.text}>{item}</Text>}
+                    renderItem={({item}) => <Text style={[styles.containerText, styles.centeredText]}>{item}</Text>}
                 />
 
             </View>

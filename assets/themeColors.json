@@ -1,10 +1,10 @@
 {
   "standard": {
     "text": "#111",
-    "containerText": "#111",
+    "containerText": "#FFF",
     "inputText": "#111",
     "background": "#f8f5ee",
-    "containerBackground": "#fff",
+    "containerBackground": "#6e001c",
     "inputBackground": "#fff",
     "button": "#6e001c",
     "buttonPressed": "#fff",
@@ -19,10 +19,10 @@
   },
   "dark": {
     "text": "#FFF",
-    "containerText": "",
+    "containerText": "#111",
     "inputText": "",
     "background": "#6e001c",
-    "containerBackground": "",
+    "containerBackground": "#f8f5ee",
     "inputBackground": "",
     "button": "",
     "buttonPressed": "",
