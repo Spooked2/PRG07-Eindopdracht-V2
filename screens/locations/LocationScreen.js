@@ -25,7 +25,7 @@ export default function LocationScreen({route}) {
     const {notes} = useNotes();
 
     const [locationNotes, setLocationNotes] = useState([]);
-    const [photos, setPhotos] = useState([]);
+    // const [photos, setPhotos] = useState([]);
 
     const {settings} = useSettings();
 
@@ -63,21 +63,23 @@ export default function LocationScreen({route}) {
 
             const fetchAsyncStorageData = async () => {
 
-                const fetchedPhotosJSON = await AsyncStorage.getItem('photos');
-
-                const fetchedPhotos = JSON.parse(fetchedPhotosJSON ?? '[]');
+                // const fetchedPhotosJSON = await AsyncStorage.getItem('photos');
+                //
+                // const fetchedPhotos = JSON.parse(fetchedPhotosJSON ?? '[]');
 
                 const filteredNotes = notes.filter((note) => note.locationId === location.id);
-                const filteredPhotos = fetchedPhotos.filter((photo) => photo.locationId === location.id);
+                // const filteredPhotos = fetchedPhotos.filter((photo) => photo.locationId === location.id);
 
                 //React native doesn't support the Array.toSorted method, but doesn't give any sort of error
                 //It just stops running code past this and doesn't say anything
                 //Why
-                const sortedNotes = [...filteredNotes].sort(sortAsyncStorageData);
-                const sortedPhotos = [...filteredPhotos].sort(sortAsyncStorageData);
+                let sortedNotes = [...filteredNotes].sort(sortAsyncStorageData);
+                // const sortedPhotos = [...filteredPhotos].sort(sortAsyncStorageData);
+
+                sortedNotes = sortedNotes.slice(0, 3);
 
                 setLocationNotes(sortedNotes);
-                setPhotos(sortedPhotos);
+                // setPhotos(sortedPhotos);
 
             }
 
@@ -90,9 +92,9 @@ export default function LocationScreen({route}) {
     return (
         <View style={styles.locationContainer}>
 
-            <Text style={styles.text}>{location.name}</Text>
+            <Text style={[styles.text, styles.header1]}>{location.name}</Text>
 
-            <TitledList items={location.facilities} title={t('LOCATION.FACILITIES')} translateItems={true}/>
+            <TitledList items={location.facilities} title={t('LOCATION.FACILITIES_TITLE')} translateItems={true}/>
 
             <TitledList items={location.institutions} title={t('LOCATION.INSTITUTIONS')}/>
 
@@ -101,19 +103,19 @@ export default function LocationScreen({route}) {
                 indexScreen={'Note'}
                 locationId={location.id}
                 navigator={navigator}
-                title={'NOTES'}
+                title={t('LOCATION.NOTES')}
             />
 
-            <SidewaysList
-                items={photos}
-                indexScreen={'Photo'}
-                locationId={location.id}
-                navigator={navigator}
-                title={'PHOTOS'}
-            />
+            {/*<SidewaysList*/}
+            {/*    items={photos}*/}
+            {/*    indexScreen={'Photo'}*/}
+            {/*    locationId={location.id}*/}
+            {/*    navigator={navigator}*/}
+            {/*    title={'PHOTOS'}*/}
+            {/*/>*/}
 
-            <Pressable onPress={goToMap}>
-                <Text style={styles.text}>{t('LOCATION.MAP_BUTTON')}</Text>
+            <Pressable onPress={goToMap} style={styles.button}>
+                <Text style={styles.containerText}>{t('LOCATION.MAP_BUTTON')}</Text>
             </Pressable>
 
         </View>

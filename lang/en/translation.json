@@ -1,17 +1,33 @@
 {
-    "HOME_TITLE": "HR Locations",
-    "NOTES": {
-        "TITLE": "Notes"
-    },
-    "PHOTOS": {
-        "TITLE": "Photos"
-    },
-    "MAP": {
-        "TITLE": "Map"
-    },
-    "SETTINGS": {
-        "TITLE": "Settings",
-        "THEME": "Theme",
-        "LANGUAGE": "Language"
+  "HOME_TITLE": "HR Locations",
+  "NOTES": {
+    "TITLE": "Notes"
+  },
+  "LOCATION": {
+    "FACILITIES_TITLE": "Facilities",
+    "INSTITUTIONS": "Institutions",
+    "NOTES": "Notes",
+    "MAP_BUTTON": "See on map",
+    "FACILITIES": {
+      "IMAGE_STUDIO": "Image studio",
+      "STUDY_LANDSCAPE": "Study landscape",
+      "CANTEEN": "Canteen",
+      "RESTAURANT": "Restaurant",
+      "MEDIA_LIBRARY": "Media library",
+      "SYMPOSIUM_HALL": "Symposium hall",
+      "STUDY_INFORMATION": "Study information",
+      "STUDY_CHOICE_GUIDANCE": "Study choice guidance"
     }
+  },
+  "PHOTOS": {
+    "TITLE": "Photos"
+  },
+  "MAP": {
+    "TITLE": "Map"
+  },
+  "SETTINGS": {
+    "TITLE": "Settings",
+    "THEME": "Theme",
+    "LANGUAGE": "Language"
+  }
 }

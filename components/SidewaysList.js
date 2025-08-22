@@ -19,9 +19,9 @@ export default function SidewaysList({title, items, locationId, indexScreen, nav
     return (
         <View style={styles.container}>
 
-            <Text style={styles.text}>{title}</Text>
+            <Text style={[styles.text, styles.header2, styles.centeredText]}>{title}</Text>
 
-            <View style={styles.container}>
+            <View style={styles.sidewaysList}>
 
                 <FlatList
                     horizontal={true}
@@ -30,8 +30,8 @@ export default function SidewaysList({title, items, locationId, indexScreen, nav
 
                 />
 
-                <Pressable onPress={goToIndex}>
-                    <Text style={styles.text}>...</Text>
+                <Pressable onPress={goToIndex} style={styles.roundButton}>
+                    <Text style={[styles.text, styles.centeredText, styles.header3]}>···</Text>
                 </Pressable>
 
             </View>

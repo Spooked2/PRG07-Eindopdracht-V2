@@ -14,11 +14,11 @@ export default function TitledList({title, items, translateItems = false}) {
     return (
         <View style={styles.titledList}>
 
-            <Text style={styles.text}>{title}</Text>
+            <Text style={[styles.containerText, styles.header2]}>{title}</Text>
 
             <FlatList
                 data={items}
-                renderItem={({item}) => <Text style={styles.text}>{translateItems ? t(item) : item}</Text>}
+                renderItem={({item}) => <Text style={[styles.containerText, styles.centeredText]}>{translateItems ? t("LOCATION.FACILITIES." + item) : item}</Text>}
             />
 
 

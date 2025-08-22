@@ -12,7 +12,7 @@ export default function SidewaysListItem({item, type}) {
     const styles = getStyle(theme);
 
     return (
-      <View style={styles.container}>
+      <View style={styles.sidewaysListItem}>
 
           <Text style={styles.text}>{item.text}</Text>
 

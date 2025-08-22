@@ -17,7 +17,7 @@ export default function LocationItemSmall({location, navigator}) {
     return (
         <View style={styles.locationItemSmall} onTouchEnd={goToDetail}>
 
-            <Text style={[styles.containerText, styles.header1, styles.centeredText]}>{location.name}</Text>
+            <Text style={[styles.containerText, styles.header2, styles.centeredText]}>{location.name}</Text>
 
             <View>
 
