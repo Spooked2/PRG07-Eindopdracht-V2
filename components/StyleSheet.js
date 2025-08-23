@@ -45,6 +45,20 @@ export default function getStyle(theme) {
             justifyContent: "center",
             alignContent: "center"
         },
+        containerRoundButton: {
+            backgroundColor: colors.containerBackground,
+            borderRadius: 50,
+            maxHeight: 40,
+            minHeight: 40,
+            maxWidth: 40,
+            minWidth: 40,
+            justifyContent: "center",
+            alignItems: "center",
+            position: "absolute",
+            zIndex: 2,
+            marginTop: '150%',
+            marginLeft: 10
+        },
         locationItemSmall: {
             flex: 1,
             backgroundColor: colors.containerBackground,
@@ -117,6 +131,12 @@ export default function getStyle(theme) {
         setting: {
             gap: 10,
             alignItems: "center"
+        },
+        notesContainer: {
+            flex: 1,
+            backgroundColor: colors.background,
+            gap: 20,
+            padding: 10
         }
     });
 

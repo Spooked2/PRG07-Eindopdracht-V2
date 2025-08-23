@@ -78,26 +78,36 @@ export default function NotesScreen({route}) {
 
 
     return (
-        <View style={styles.container}>
+        <View style={styles.notesContainer}>
 
-            <Text style={styles.text}>{t('NOTES.TITLE')}</Text>
+            <View style={styles.setting}>
 
-            <DropDownPicker
-                setValue={setLocationValue}
-                value={locationValue}
-                items={locationItems}
-                setItems={setLocationItems}
-                open={openLocation}
-                setOpen={setOpenLocation}
-            />
+                <Text style={[styles.text, styles.header2]}>{t('NOTES.LOCATION')}</Text>
+
+                <DropDownPicker
+                    setValue={setLocationValue}
+                    value={locationValue}
+                    items={locationItems}
+                    setItems={setLocationItems}
+                    open={openLocation}
+                    setOpen={setOpenLocation}
+                />
+
+            </View>
 
             <FlatList
                 data={filteredNotes}
-                renderItem={({item}) => <SidewaysListItem key={item.id} item={item} type={'NOTES'}/>}
+                numColumns={2}
+                columnWrapperStyle={styles.twoColumnList}
+                renderItem={({item}) =>
+                    <View key={item.id} style={styles.locationItemSmall}>
+                        <Text style={styles.containerText}>{item.text}</Text>
+                    </View>
+            }
             />
 
-            <Pressable onPress={goToCreateScreen}>
-                <Text style={styles.text}>+</Text>
+            <Pressable style={styles.containerRoundButton} onPress={goToCreateScreen}>
+                <Text style={[styles.containerText, styles.header2]}>+</Text>
             </Pressable>
 
         </View>

@@ -1,7 +1,8 @@
 {
   "HOME_TITLE": "HR Locations",
   "NOTES": {
-    "TITLE": "Notes"
+    "TITLE": "Notes",
+    "LOCATION": "Location"
   },
   "LOCATION": {
     "FACILITIES_TITLE": "Facilities",
