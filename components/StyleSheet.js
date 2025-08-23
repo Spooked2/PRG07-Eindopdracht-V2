@@ -80,7 +80,8 @@ export default function getStyle(theme) {
             flex: 1,
             alignItems: "center",
             padding: 25,
-            gap: 5
+            gap: 5,
+            backgroundColor: colors.background
         },
         sidewaysList: {
             flex: 1,
@@ -105,6 +106,17 @@ export default function getStyle(theme) {
             borderRadius: 6,
             marginRight: 10,
             padding: 5
+        },
+        settingsContainer: {
+            flex: 1,
+            padding: 20,
+            justifyContent: "center",
+            gap: 20,
+            backgroundColor: colors.background
+        },
+        setting: {
+            gap: 10,
+            alignItems: "center"
         }
     });
 

@@ -106,11 +106,11 @@ export default function SettingsScreen() {
     }, []);
 
     return (
-        <View style={styles.container}>
+        <View style={styles.settingsContainer}>
 
-            <View style={styles.container}>
+            <View style={styles.setting}>
 
-                <Text style={styles.text}>{t('SETTINGS.THEME')}</Text>
+                <Text style={[styles.text, styles.header2]}>{t('SETTINGS.THEME')}</Text>
 
                 <DropDownPicker
                     setValue={setThemeValue}
@@ -120,13 +120,14 @@ export default function SettingsScreen() {
                     open={openTheme}
                     setOpen={setOpenTheme}
                     onOpen={onOpenThemeDropdown}
+                    zIndex={3}
                 />
 
             </View>
 
-            <View style={styles.container}>
+            <View style={styles.setting}>
 
-                <Text style={styles.text}>{t('SETTINGS.LANGUAGE')}</Text>
+                <Text style={[styles.text, styles.header2]}>{t('SETTINGS.LANGUAGE')}</Text>
 
                 <DropDownPicker
                     setValue={setLanguageValue}
@@ -136,6 +137,7 @@ export default function SettingsScreen() {
                     open={openLanguage}
                     setOpen={setOpenLanguage}
                     onOpen={onOpenLanguageDropdown}
+                    zIndex={2}
                 />
 
             </View>
