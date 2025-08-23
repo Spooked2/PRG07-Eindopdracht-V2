@@ -2,7 +2,13 @@
   "HOME_TITLE": "HR Locations",
   "NOTES": {
     "TITLE": "Notes",
-    "LOCATION": "Location"
+    "LOCATION": "Location",
+    "CREATE": {
+      "TEXT_LABEL": "Create new note",
+      "PLACEHOLDER": "Input text here...",
+      "FAVORITE_LABEL": "Favorite",
+      "SUBMIT": "Create note"
+    }
   },
   "LOCATION": {
     "FACILITIES_TITLE": "Facilities",

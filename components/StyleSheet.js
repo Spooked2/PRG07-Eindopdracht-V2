@@ -67,7 +67,7 @@ export default function getStyle(theme) {
             alignItems: "center",
             height: 150,
             maxWidth: '47%',
-            overflow: "hidden",
+            overflow: "scroll",
             borderRadius: 6,
         },
         twoColumnList: {
@@ -137,6 +137,21 @@ export default function getStyle(theme) {
             backgroundColor: colors.background,
             gap: 20,
             padding: 10
+        },
+        input: {
+            backgroundColor: colors.containerBackground,
+            padding: 10,
+            borderRadius: 6,
+            minHeight: '20%',
+            textAlignVertical: "top",
+            minWidth: '80%'
+        },
+        createNoteContainer: {
+            flex: 1,
+            padding: 10,
+            gap: 20,
+            backgroundColor: colors.background,
+            justifyContent: "center"
         }
     });
 

@@ -51,6 +51,10 @@ export default function NoteCreateScreen({route}) {
 
     const submitForm = async () => {
 
+        if (formData.text === '') {
+            return;
+        }
+
         const {success} = await LocalAuthentication.authenticateAsync({biometricsSecurityLevel: 'weak'});
 
         if (!success) {
@@ -87,18 +91,31 @@ export default function NoteCreateScreen({route}) {
     }, [notes]);
 
     return (
-        <KeyboardAvoidingView style={styles.container}>
+        <KeyboardAvoidingView style={styles.createNoteContainer}>
 
-            <Text style={styles.text}>{t('NOTES.CREATE.TEXTLABEL')}</Text>
+            <View style={styles.setting}>
 
-            <TextInput style={styles.text} multiline={true} onChangeText={updateInput}/>
+                <Text style={[styles.text, styles.header1]}>{t('NOTES.CREATE.TEXT_LABEL')}</Text>
 
-            <Text style={styles.text}>{t('NOTES.CREATE.FAVORITELABEL')}</Text>
+                <TextInput
+                    style={[styles.containerText, styles.input]}
+                    multiline={true}
+                    onChangeText={updateInput}
+                    placeholder={t('NOTES.CREATE.PLACEHOLDER')}
+                />
 
-            <Switch onValueChange={toggleFavorite} value={formData.favorite}/>
+            </View>
 
-            <Pressable onPress={submitForm}>
-                <Text style={styles.text}>{t('NOTES.CREATE.SUBMIT')}</Text>
+            <View style={styles.setting}>
+
+                <Text style={[styles.text, styles.header2]}>{t('NOTES.CREATE.FAVORITE_LABEL')}</Text>
+
+                <Switch onValueChange={toggleFavorite} value={formData.favorite}/>
+
+            </View>
+
+            <Pressable style={styles.button} onPress={submitForm}>
+                <Text style={[styles.containerText, styles.centeredText, styles.header2]}>{t('NOTES.CREATE.SUBMIT')}</Text>
             </Pressable>
 
         </KeyboardAvoidingView>
